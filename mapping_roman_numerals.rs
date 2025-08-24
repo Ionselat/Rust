@@ -1,6 +1,4 @@
-use std::{collections::HashMap};
-
-#[derive(Eq, Hash, PartialEq, Clone)]
+#[derive(Clone)]
 struct RomanNumeral {
     string: String,
     value: i32,
@@ -13,20 +11,6 @@ impl RomanNumeral{
 }
 
 fn convert_string(mut string: String) -> i32 {
-    let mut hash: HashMap<String, i32> = HashMap::new();
-    hash.insert("I".to_string(), 1);
-    hash.insert("IV".to_string(), 4);
-    hash.insert("V".to_string(), 5);
-    hash.insert("IX".to_string(), 9);
-    hash.insert("X".to_string(), 10);
-    hash.insert("L".to_string(), 50);
-    hash.insert("C".to_string(), 100);
-    hash.insert("D".to_string(), 500);
-    hash.insert("M".to_string(), 1000);
-    
-    // let rn10 = Roman_Numeral::new(
-    //     "I".to_string(), 1);
-    
     let rn40 = RomanNumeral::new(
         "IX".to_string(), 9);
     let rn30 = RomanNumeral::new(
@@ -91,9 +75,8 @@ fn convert_string(mut string: String) -> i32 {
             running_sum += rn.value;
         }
     }
-    running_sum
-
     // println!("{} processed, Sum is {}",running_string, running_sum);
+    running_sum
 }
 
 fn main(){
@@ -102,10 +85,6 @@ fn main(){
     println!("{}", return_value);
 
     let test_string = "CCXXIV".to_string();
-    let return_value = convert_string(test_string);
-    println!("{}", return_value);
-
-    let test_string = "IVDXC".to_string();
     let return_value = convert_string(test_string);
     println!("{}", return_value);
 }
